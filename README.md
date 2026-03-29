@@ -47,7 +47,19 @@ FastQC evaluates the quality of these raw reads by checking:
 - GC content
 - Duplication rates
 
+```bash
+fastqc sample1.fastq.gz -o ./fastqc_results/
+# You can add multiple files separated by a space
+# fastqc sample1.fastq.gz sample2.fastq.gz -o ./fastqc_results/
+```
+
+
 MultiQC combines FastQC reports from multiple samples into a single summary report, making it easier to compare samples at a glance.
+```bash
+# Combine all FastQC reports into one summary
+multiqc .
+# The dot means: use the current working directory
+```
 
 
 
