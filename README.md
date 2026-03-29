@@ -18,4 +18,37 @@ This repository is based on a pipeline recommended by a PhD student in our lab, 
 - Visualization of results: PCA plots and MA plots
 
 
+### 0. Setting Up the Environment — Conda
+
+Tools like FastQC, STAR, and Salmon all have different versions and dependencies. Installing them all directly on the computer can cause conflicts. Conda (a virtual environment) solves this by creating an isolated environment for each project, where all tools run independently without interfering with each other.
+
+To create and activate the environment:
+```bash
+conda create -n RNA-seq
+conda activate RNA-seq
+```
+```bash
+conda install -n RNA-seq -c bioconda fastqc
+conda install -n RNA-seq -c bioconda fastp
+conda install -n RNA-seq -c bioconda samtools
+conda install -n RNA-seq -c bioconda deeptools
+conda install -n RNA-seq -c bioconda salmon
+```
+
+
+### 1.Quality Control - FastQC & MultiQC
+
+After sequencing, the machine returns raw data consisting of millions of short DNA sequences called "reads". During sequencing, the machine assigns a confidence score to each base it reads - this is called a quality score (Phred score).
+Low quality bases mean the machine was uncertain, and including them in the analysis can lead to incorrect results. 
+
+FastQC evaluates the quality of these raw reads by checking:
+- Per base quality scores
+- Adapter contamination
+- GC content
+- Duplication rates
+
+MultiQC combines FastQC reports from multiple samples into a single summary report, making it easier to compare samples at a glance.
+
+
+
 
